@@ -2,13 +2,14 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
-	"strings"
-	"github.com/xuri/excelize"
 	"log"
-	"time"
 	"math/rand"
+	"os"
+	"strings"
+	"time"
+
+	"github.com/xuri/excelize"
 )
 
 // в этом блоке объявляются глобальные переменные, которые будут доступны из всех функций

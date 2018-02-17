@@ -1,0 +1,1 @@
+SELECT user_id, r.title FROM booking b inner join restaurant r on r.id=b.restaurant_id;

@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"html/template"
 	"log"
 	"math/rand"
-	"time"
-	"strings"
+	"net/http"
 	"os/exec"
 	"runtime"
+	"strings"
+	"time"
 )
 
 type (
@@ -29,7 +29,7 @@ type (
 
 	// структру данных для html шаблона
 	DataForTemplate struct {
-		CurrentWord        Word     // текущее слово
+		CurrentWord        Word `json:"current_word"`     // текущее слово
 		UserAnswers        []Answer // список ответов пользователя
 		RightCnt, WrongCnt int      // счетчики правильных и неправильных ответов
 	}
