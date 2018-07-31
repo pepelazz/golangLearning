@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <title>Demo</title>
+</head>
+<body class="bg-light">
+
+<div class="container" id="app">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://www.shareicon.net/download/2015/09/20/104335_avatar.svg"
+             alt="" height="100px">
+        <h3>Список пользователей</h3>
+        <div class="row justify-content-center mb-4">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary" @click='addUser'><i class="material-icons"
+                                                                                          style="font-size:18px;">add</i>
+                </button>
+                <button type="button" class="btn btn-outline-primary" @click='save'><i class="material-icons"
+                                                                                       style="font-size:18px;">save</i>
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <div class="input-group mb-2" v-for="(user, index) in userList" :key='user.id'>
+                    <input v-model='user.name' type="text" class="form-control" placeholder="Фамилия пользователя"
+                           aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <select v-model="user.social" class="custom-select">
+                        <option selected>соцсеть</option>
+                        <option value="fb">Facebook</option>
+                        <option value="vk">ВКонтакте</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" @click='remove(index, user.id)'>
+                            <i class="material-icons" style="font-size:18px;">delete</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!--Vue-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            userList: []
+        },
+        methods: {
+            addUser() {
+                // при добавлении нового пользователя находим id последнего существуюещго пользователя и у нового пользователя создаем id на единицу больше
+                let [lastUser] = this.userList.slice(-1)
+                this.userList.push({id: lastUser.id + 1, name: '', social: 'vk'})
+            },
+            save() {
+                // перед отправкой на сервер убираем пустые строчки
+                this.userList = this.userList.filter(v => v.name.length > 0)
+                // отправка список на сервер post запросом
+                this.$http.post(`http://localhost:3010/api/userListSave`, this.userList).then(resp => {
+                    console.log('resp:', resp)
+                }).catch((resp) => {
+                    console.log('err:', resp)
+                })
+            },
+            remove(i, id) {
+                this.userList.splice(i, 1)
+                this.$http.post(`http://localhost:3010/api/userRemove`, {id}).then(resp => {
+                    console.log('resp:', resp)
+                }).catch((resp) => {
+                    console.log('err:', resp)
+                })
+            }
+        },
+        created() {
+            this.$http.post(`http://localhost:3010/api/userListGet`, this.userList).then(resp => {
+                console.log('resp:', resp)
+                if (resp.body.ok) {
+                    this.userList = resp.body.result
+                }
+            }).catch((resp) => {
+                console.log('err:', resp)
+            })
+        }
+
+    })
+</script>
+</body>
+</html>
