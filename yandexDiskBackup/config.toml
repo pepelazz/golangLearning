@@ -1,0 +1,10 @@
+# инструкция по получению токена https://yandex.ru/dev/direct/doc/dg-v4/examples/auth-token-sample-docpage/
+# получение auth token через curl
+# curl -d "grant_type=authorization_code&code=9867353&client_id=jkbwpwc9y31aWTW6G89RO9E3FaPQmWLB&client_secret=jkbwpwc9y31aWTW6G89RO9E3FaPQmWLB" https://oauth.yandex.ru/token
+
+authToken="jkbwpwc9y31aWTW6G89RO9E3FaPQmWLB"
+
+projectList = [
+   ["projectA", "docker", "/var/lib/postgresql/projectA.sql.gz", "", "/var/lib/postgresql/projectA.sql.gz"],
+   ["projectB", "docker", "/home/deploy/projectB", "project_b_postgres_1"],
+]
