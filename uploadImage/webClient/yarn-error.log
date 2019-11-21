@@ -1,0 +1,63 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
+
+PATH: 
+  C:\Go\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2019.2\jbr\\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2019.2\jbr\\bin\server;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\ProgramData\chocolatey\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Go\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\ProgramData\chocolatey\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Go\bin;C:\Users\Trickster\AppData\Local\Microsoft\WindowsApps;C:\Users\Trickster\AppData\Roaming\npm;C:\Users\Trickster\AppData\Local\Yarn\bin;C:\Program Files\PuTTY;C:\Users\Trickster\go\bin;\bin;C:\Program Files\PostgreSQL\11\bin;;D:\Projects\Go\bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\Projects\Go\src\github.com\pepelazz\golangLearning\uploadImage\webClient\package.json: Unexpected token } in JSON at position 374
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:304:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "attune",
+    "version": "0.0.1",
+    "description": "uploadImage",
+    "productName": "uploadImage",
+    "cordovaId": "org.cordova.quasar.app",
+    "author": "",
+    "private": true,
+    "scripts": {
+      "lint": "eslint --ext .js,.vue src",
+      "test": "echo \"No test specified\" && exit 0"
+    },
+    "dependencies": {
+      "@quasar/extras": "^1.0.0",
+      "quasar": "^1.0.0",
+    },
+    "devDependencies": {
+      "@quasar/app": "^1.0.0",
+      "@vue/eslint-config-standard": "^4.0.0",
+      "babel-eslint": "^10.0.1",
+      "eslint": "^5.10.0",
+      "eslint-loader": "^2.1.1",
+      "eslint-plugin-vue": "^5.0.0"
+    },
+    "engines": {
+      "node": ">= 8.9.0",
+      "npm": ">= 5.6.0",
+      "yarn": ">= 1.6.0"
+    },
+    "browserslist": [
+      "last 1 version, not dead, ie >= 11"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

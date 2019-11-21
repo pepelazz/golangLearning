@@ -6,5 +6,5 @@ authToken="jkbwpwc9y31aWTW6G89RO9E3FaPQmWLB"
 
 projectList = [
    ["projectA", "docker", "/var/lib/postgresql/projectA.sql.gz", "", "/var/lib/postgresql/projectA.sql.gz"],
-   ["projectB", "docker", "/home/deploy/projectB", "project_b_postgres_1"],
+   ["defly", "docker", "/home/deploy/eduBots/defly", "defly_postgres_1"],
 ]

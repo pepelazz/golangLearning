@@ -7,6 +7,9 @@ import (
 	"os"
 )
 
+// ссылка на методы яндекс диск api
+// https://tech.yandex.com/disk/doc/dg/concepts/api-methods-docpage/
+
 func apiRequest(path, method string) (*http.Response, error) {
 	client := http.Client{}
 	url := fmt.Sprintf("%s/%s", ynxUrl, path)
